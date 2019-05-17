@@ -6,8 +6,8 @@ import store from "@store";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <Provider>
-        <App store={store}/>  
+    <Provider store={store}>
+        <App />  
     </Provider>
 
 , document.getElementById('root'));

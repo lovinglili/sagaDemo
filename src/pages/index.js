@@ -1,9 +1,23 @@
 import React from 'react';
+import { connect } from "react-redux";
+import homeActions from '../store/home/actionCreators'
+import { Button } from 'antd'
 
-function Container() {
-  return (
-    <div>container</div>
-  );
+
+class Container extends React.Component {
+  render(){
+    return (
+      <div><Button onClick={()=>{
+        this.props.dispatch(homeActions.getListInfo())
+      }}>get list</Button></div>
+    );
+  }
 }
 
-export default Container;
+
+function mapStateToProps(state) {
+  return {
+    list: state.home.list,
+  };
+}
+export default connect(mapStateToProps)(Container);
